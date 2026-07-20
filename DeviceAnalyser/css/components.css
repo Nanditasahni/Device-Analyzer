@@ -1,0 +1,884 @@
+/* ==========================================================================
+   Device Analyzer - UI Components
+   ========================================================================== */
+
+/* Glassmorphism Cards */
+.glass-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    padding: 1.5rem;
+    backdrop-filter: blur(var(--blur-strength));
+    -webkit-backdrop-filter: blur(var(--blur-strength));
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.glass-card:hover {
+    border-color: var(--card-hover-border);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.45);
+}
+
+.light-theme .glass-card:hover {
+    box-shadow: 0 12px 40px 0 rgba(15, 23, 42, 0.12);
+}
+
+/* Card Headers */
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.card-header h3 {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+/* Card Icons & Glow Effects */
+.card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.indigo-glow {
+    background: rgba(79, 70, 229, 0.15);
+    color: #818cf8;
+    box-shadow: 0 0 12px rgba(79, 70, 229, 0.2);
+}
+.cyan-glow {
+    background: rgba(6, 182, 212, 0.15);
+    color: #22d3ee;
+    box-shadow: 0 0 12px rgba(6, 182, 212, 0.2);
+}
+.purple-glow {
+    background: rgba(168, 85, 247, 0.15);
+    color: #c084fc;
+    box-shadow: 0 0 12px rgba(168, 85, 247, 0.2);
+}
+.emerald-glow {
+    background: rgba(34, 197, 94, 0.15);
+    color: #4ade80;
+    box-shadow: 0 0 12px rgba(34, 197, 94, 0.2);
+}
+.orange-glow {
+    background: rgba(249, 115, 22, 0.15);
+    color: #fb923c;
+    box-shadow: 0 0 12px rgba(249, 115, 22, 0.2);
+}
+.ruby-glow {
+    background: rgba(239, 68, 68, 0.15);
+    color: #f87171;
+    box-shadow: 0 0 12px rgba(239, 68, 68, 0.2);
+}
+.amber-glow {
+    background: rgba(245, 158, 11, 0.15);
+    color: #fbbf24;
+    box-shadow: 0 0 12px rgba(245, 158, 11, 0.2);
+}
+
+/* Card Body Descriptions */
+.card-description {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* Data Lists */
+.info-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.info-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    border-bottom: 1px dashed var(--card-border);
+    padding-bottom: 0.5rem;
+}
+
+.info-list li:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.info-label {
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.info-value {
+    color: var(--text-main);
+    font-weight: 600;
+}
+
+/* Status Badges */
+.info-badge {
+    padding: 0.2rem 0.6rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+    background: var(--input-bg);
+    color: var(--text-muted);
+}
+
+.info-badge.success {
+    background: rgba(34, 197, 94, 0.15);
+    color: #4ade80;
+    border: 1px solid rgba(34, 197, 94, 0.25);
+}
+
+.info-badge.warning {
+    background: rgba(245, 158, 11, 0.15);
+    color: #fbbf24;
+    border: 1px solid rgba(245, 158, 11, 0.25);
+}
+
+.info-badge.danger {
+    background: rgba(239, 68, 68, 0.15);
+    color: #f87171;
+    border: 1px solid rgba(239, 68, 68, 0.25);
+}
+
+.info-badge.info {
+    background: rgba(59, 130, 246, 0.15);
+    color: #60a5fa;
+    border: 1px solid rgba(59, 130, 246, 0.25);
+}
+
+/* Collapsible User Agent / Raw Code Blocks */
+.collapsible-section {
+    background: var(--input-bg);
+    border: 1px solid var(--input-border);
+    border-radius: 10px;
+    padding: 0.75rem;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    word-break: break-all;
+    margin-top: 1rem;
+}
+
+.collapsible-section strong {
+    color: var(--text-main);
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+/* ==========================================================================
+   Buttons & Inputs
+   ========================================================================== */
+
+/* Base Button resets */
+button {
+    font-family: var(--font-body);
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    padding: 0.65rem 1.25rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    transition: var(--transition);
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+/* Primary Glow Button */
+.primary-btn {
+    background: linear-gradient(135deg, var(--primary) 0%, #6366f1 100%);
+    color: #ffffff;
+    box-shadow: 0 4px 14px 0 rgba(79, 70, 229, 0.35);
+}
+
+.primary-btn:hover {
+    box-shadow: 0 6px 20px 0 rgba(79, 70, 229, 0.5);
+    transform: translateY(-1px);
+}
+
+/* Secondary Button */
+.secondary-btn {
+    background: var(--btn-secondary-bg);
+    color: var(--text-main);
+    border: 1px solid var(--card-border);
+}
+
+.secondary-btn:hover {
+    background: var(--btn-secondary-hover);
+    border-color: var(--card-hover-border);
+}
+
+/* Icon Buttons (Header Themes etc.) */
+.icon-btn {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border-radius: 50%;
+    background: var(--btn-secondary-bg);
+    border: 1px solid var(--card-border);
+    color: var(--text-main);
+}
+
+.icon-btn:hover {
+    background: var(--btn-secondary-hover);
+    border-color: var(--card-hover-border);
+}
+
+/* Text Buttons */
+.text-btn {
+    background: transparent;
+    padding: 0;
+    color: var(--secondary);
+    font-size: 0.75rem;
+}
+
+.text-btn:hover {
+    text-decoration: underline;
+    color: #22d3ee;
+}
+
+/* Custom inputs & selects */
+.custom-input {
+    background: var(--input-bg);
+    border: 1px solid var(--input-border);
+    border-radius: 10px;
+    padding: 0.65rem 1rem;
+    color: var(--text-main);
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    outline: none;
+    flex: 1;
+    transition: var(--transition);
+}
+
+.custom-input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px var(--primary-glow);
+}
+
+.custom-select {
+    background: var(--input-bg);
+    border: 1px solid var(--input-border);
+    border-radius: 10px;
+    padding: 0.65rem 1rem;
+    color: var(--text-main);
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    outline: none;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.custom-select:focus {
+    border-color: var(--primary);
+}
+
+.input-group {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* ==========================================================================
+   Battery Visual Components
+   ========================================================================== */
+
+.battery-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.battery-meter-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.battery-visual {
+    width: 140px;
+    height: 60px;
+    border: 3px solid var(--text-main);
+    border-radius: 12px;
+    padding: 3px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Battery Tip */
+.battery-visual::after {
+    content: '';
+    position: absolute;
+    right: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 20px;
+    background: var(--text-main);
+    border-radius: 0 4px 4px 0;
+}
+
+.battery-fill {
+    height: 100%;
+    border-radius: 6px;
+    background: linear-gradient(90deg, #10b981 0%, #34d399 100%);
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 0 8px rgba(16, 185, 129, 0.4);
+}
+
+.battery-pct-label {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--text-main);
+    mix-blend-mode: difference;
+}
+
+.battery-state-text {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* ==========================================================================
+   Internet Speedmeter Components
+   ========================================================================== */
+
+.speedtest-layout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.speed-meter-wrapper {
+    flex: 0 0 auto;
+}
+
+.gauge-outer {
+    position: relative;
+    width: 160px;
+    height: 160px;
+}
+
+.speed-gauge {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+
+.gauge-bg {
+    fill: none;
+    stroke: var(--input-bg);
+    stroke-width: 8;
+}
+
+.gauge-value {
+    fill: none;
+    stroke: url(#speed-gradient);
+    stroke-width: 8;
+    stroke-linecap: round;
+    stroke-dasharray: 251.2; /* 2 * PI * 40 */
+    transition: stroke-dashoffset 0.4s ease;
+}
+
+/* Add custom gradient to gauge value via standard svg injection if needed, 
+   otherwise default to fallback var styling via browser. */
+.gauge-value {
+    stroke: var(--secondary);
+    filter: drop-shadow(0 0 6px var(--secondary-glow));
+}
+
+.gauge-center {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.speed-value {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--text-main);
+    line-height: 1;
+}
+
+.speed-unit {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.speed-details {
+    flex: 1 1 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.speed-controls {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.speed-metrics {
+    margin-top: 0.5rem;
+}
+
+/* Progress bar template */
+.progress-bar-container {
+    width: 100%;
+    height: 8px;
+    background: var(--input-bg);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+/* ==========================================================================
+   IP & Location Components
+   ========================================================================== */
+
+.ip-display {
+    background: var(--input-bg);
+    border: 1px solid var(--input-border);
+    border-radius: 12px;
+    padding: 1rem;
+    text-align: center;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--secondary);
+    text-shadow: 0 0 10px var(--secondary-glow);
+}
+
+/* ==========================================================================
+   Performance Rating Box
+   ========================================================================== */
+
+.perf-rating-box {
+    background: var(--input-bg);
+    border: 1px solid var(--input-border);
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.perf-rating-box span {
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+/* ==========================================================================
+   Clipboard Tester Previews
+   ========================================================================== */
+
+.clipboard-box {
+    border: 1px solid var(--input-border);
+    border-radius: 10px;
+    background: var(--input-bg);
+    overflow: hidden;
+}
+
+.clipboard-header {
+    background: rgba(255,255,255,0.02);
+    border-bottom: 1px solid var(--input-border);
+    padding: 0.5rem 0.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.clipboard-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+.clipboard-preview {
+    padding: 0.75rem;
+    font-size: 0.8rem;
+    color: var(--text-main);
+    min-height: 50px;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+/* ==========================================================================
+   Camera & Media Preview Components
+   ========================================================================== */
+
+.camera-preview-container {
+    width: 100%;
+    aspect-ratio: 16/9;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #000;
+    border: 1px solid var(--input-border);
+    position: relative;
+}
+
+#webcam-preview {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ==========================================================================
+   Device Motion Warnings
+   ========================================================================== */
+
+.sensor-status-warning {
+    background: rgba(245, 158, 11, 0.1);
+    border: 1px solid rgba(245, 158, 11, 0.2);
+    color: #fbbf24;
+    border-radius: 10px;
+    padding: 0.75rem;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+/* ==========================================================================
+   QR Code Generator Layout
+   ========================================================================== */
+
+.qr-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.qr-code-box {
+    width: 140px;
+    height: 140px;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    overflow: hidden;
+}
+
+.qr-code-box img, .qr-code-box canvas {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.qr-placeholder {
+    color: #0f172a;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.qr-controls {
+    width: 100%;
+}
+
+/* ==========================================================================
+   Toast Notification System
+   ========================================================================== */
+
+.toast-container {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    z-index: 1000;
+    pointer-events: none;
+}
+
+.toast {
+    background: rgba(15, 23, 42, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    color: #ffffff;
+    padding: 0.75rem 1.25rem;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+    pointer-events: auto;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: toast-in 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.toast.success {
+    border-left: 4px solid var(--success);
+}
+
+.toast.warning {
+    border-left: 4px solid var(--warning);
+}
+
+.toast.error {
+    border-left: 4px solid var(--danger);
+}
+
+@keyframes toast-in {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Circular SVG progress rings */
+.circular-progress-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+}
+
+.circular-progress-svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+
+.circular-progress-bg {
+    fill: none;
+    stroke: var(--input-bg);
+    stroke-width: 8;
+}
+
+.circular-progress-fill {
+    fill: none;
+    stroke: var(--primary);
+    stroke-width: 8;
+    stroke-linecap: round;
+    stroke-dasharray: 251.2;
+    stroke-dashoffset: 251.2;
+    transition: stroke-dashoffset 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.circular-progress-text {
+    position: absolute;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--text-main);
+    font-family: var(--font-heading);
+}
+
+/* Specific circle coloring variables */
+.battery-circle {
+    stroke: var(--success);
+    filter: drop-shadow(0 0 4px var(--success-glow));
+}
+
+.storage-circle {
+    stroke: #c084fc;
+    filter: drop-shadow(0 0 4px rgba(168, 85, 247, 0.4));
+}
+
+.ram-circle {
+    stroke: #06b6d4;
+    filter: drop-shadow(0 0 4px rgba(6, 182, 212, 0.4));
+}
+
+.speed-circle {
+    stroke: #22d3ee;
+    filter: drop-shadow(0 0 4px rgba(6, 182, 212, 0.4));
+}
+
+.health-circle {
+    stroke: #4f46e5;
+    filter: drop-shadow(0 0 6px rgba(79, 70, 229, 0.5));
+}
+
+/* Charts sizing */
+.chart-container {
+    position: relative;
+    width: 100%;
+    height: 160px;
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+/* Card details adjustments for circular layout */
+.card-layout-circular {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 1.25rem;
+    align-items: center;
+}
+
+@media (max-width: 480px) {
+    .card-layout-circular {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        text-align: center;
+    }
+}
+
+/* Security list styles */
+.security-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.security-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.6rem 0.85rem;
+    border-radius: 10px;
+    background: var(--input-bg);
+    border: 1px solid var(--input-border);
+    font-size: 0.85rem;
+}
+
+.security-item-left {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.security-icon {
+    font-size: 1rem;
+    width: 16px;
+    text-align: center;
+}
+
+.security-label {
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+/* Live dynamic values style */
+.live-pulse-value {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--text-main);
+    font-family: var(--font-heading);
+}
+
+.live-badge {
+    background: rgba(239, 68, 68, 0.15) !important;
+    color: #f87171 !important;
+    border: 1px solid rgba(239, 68, 68, 0.25) !important;
+    animation: live-blink 1.5s infinite ease-in-out;
+}
+
+@keyframes live-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* AI Summary and Advanced Speed Test elements */
+.ai-summary-card-span {
+    grid-column: 1 / -1;
+}
+
+.speedtest-layout-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 1.5rem;
+    align-items: start;
+}
+
+@media (max-width: 768px) {
+    .speedtest-layout-grid {
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+}
+
+.speed-qualities {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background: var(--input-bg);
+    border: 1px solid var(--input-border);
+    border-radius: 12px;
+    padding: 0.75rem;
+}
+
+.quality-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.82rem;
+}
+
+.quality-label {
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.quality-label i {
+    margin-right: 0.25rem;
+    width: 14px;
+    text-align: center;
+}
+
+.speed-history-table th, .speed-history-table td {
+    padding: 0.5rem 0.25rem;
+    border-bottom: 1px dashed var(--card-border);
+}
+
+.speed-history-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
