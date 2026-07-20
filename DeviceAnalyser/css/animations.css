@@ -1,0 +1,114 @@
+/* ==========================================================================
+   Device Analyzer - Animations & Micro-interactions
+   ========================================================================== */
+
+/* Shimmer Skeleton Loader for Text Elements */
+.loading-skeleton-text {
+    display: inline-block;
+    height: 1.25em;
+    width: 80px;
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.05) 25%,
+        rgba(255, 255, 255, 0.12) 50%,
+        rgba(255, 255, 255, 0.05) 75%
+    );
+    background-size: 200% 100%;
+    animation: skeleton-shimmer 1.5s infinite linear;
+    border-radius: 4px;
+    color: transparent !important;
+}
+
+.light-theme .loading-skeleton-text {
+    background: linear-gradient(
+        90deg,
+        rgba(15, 23, 42, 0.04) 25%,
+        rgba(15, 23, 42, 0.1) 50%,
+        rgba(15, 23, 42, 0.04) 75%
+    );
+    background-size: 200% 100%;
+}
+
+@keyframes skeleton-shimmer {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Card Entry Transition */
+.cards-grid > article {
+    opacity: 0;
+    transform: translateY(15px);
+    animation: fade-in-up 0.5s cubic-bezier(0.21, 1.02, 0.43, 1.01) forwards;
+}
+
+/* Sequential Staggered Loading of Cards using inline variables or standard count */
+.cards-grid > article:nth-child(1) { animation-delay: 0.05s; }
+.cards-grid > article:nth-child(2) { animation-delay: 0.1s; }
+.cards-grid > article:nth-child(3) { animation-delay: 0.15s; }
+.cards-grid > article:nth-child(4) { animation-delay: 0.2s; }
+.cards-grid > article:nth-child(5) { animation-delay: 0.25s; }
+.cards-grid > article:nth-child(6) { animation-delay: 0.3s; }
+.cards-grid > article:nth-child(7) { animation-delay: 0.35s; }
+.cards-grid > article:nth-child(8) { animation-delay: 0.4s; }
+.cards-grid > article:nth-child(9) { animation-delay: 0.45s; }
+.cards-grid > article:nth-child(10) { animation-delay: 0.5s; }
+.cards-grid > article:nth-child(11) { animation-delay: 0.55s; }
+.cards-grid > article:nth-child(12) { animation-delay: 0.6s; }
+.cards-grid > article:nth-child(13) { animation-delay: 0.65s; }
+.cards-grid > article:nth-child(14) { animation-delay: 0.7s; }
+.cards-grid > article:nth-child(15) { animation-delay: 0.75s; }
+.cards-grid > article:nth-child(16) { animation-delay: 0.8s; }
+.cards-grid > article:nth-child(17) { animation-delay: 0.85s; }
+
+@keyframes fade-in-up {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Pulse animation (e.g. status circles) */
+.pulse-glow {
+    animation: pulse 2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(79, 70, 229, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(79, 70, 229, 0);
+    }
+}
+
+/* Spinning rotate (used for sync/refresh buttons) */
+.spin-anim {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Speedometer needle vibration micro-animation */
+@keyframes vibration {
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(0.5deg); }
+    100% { transform: rotate(-0.5deg); }
+}
+
+.speed-meter-active {
+    animation: vibration 0.1s infinite;
+}
